@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
@@ -168,3 +168,7 @@ def javob_olish(request, buyurtma_id):
 
     except ContactMessage.DoesNotExist:
         return JsonResponse({'ok': False, 'javoblar': []})
+
+
+def google_verification(request):
+    return HttpResponse("google-site-verification: googleec6e8bba19eb9bcf.html", content_type="text/plain")
